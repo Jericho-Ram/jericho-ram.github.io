@@ -36,8 +36,8 @@
 <p>Scoring only the <code>26,612</code> pages where decline was arithmetically possible, ROC AUC fell from <code>0.750</code> to <code>0.565</code> and Precision@50 from <code>0.740</code> to <code>0.600</code>, against a base rate of <code>0.611</code>. The model was doing a job I could have done with a filter. The hard question — which of the pages that could have gone either way actually declined — is the one it could not answer.</p>
 
 <figure>
-<img src="charts/trend_distribution.svg" alt="Bar chart of label distribution across the 30,000-row CSV: down 16,300; stable 5,960; up 4,390.">
-<figcaption>Label distribution, bundled CSV, all <code>30,000</code> rows &mdash; before the zero-impression filter. Source: <code>outputs/charts/trend_distribution.svg</code>, recoloured, data unchanged.</figcaption>
+<img src="charts/trend_distribution.svg" alt="Bar chart of label distribution across the 26,612 pages where decline was arithmetically possible: down 16,300; stable 5,960; up 4,390.">
+<figcaption>Label distribution, bundled CSV, the <code>26,612</code> pages where decline was arithmetically possible &mdash; after the zero-impression filter. Bar labels are rounded to three significant figures by the chart script. Source: <code>outputs/charts/trend_distribution.svg</code>, recoloured, data unchanged.</figcaption>
 </figure>
 
 <h2 class="limit">The number that didn't reproduce</h2>
