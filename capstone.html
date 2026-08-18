@@ -38,7 +38,7 @@
 
 <p>The pipeline runs end to end from a phone &mdash; Colab for notebooks, Termux for git, the GitHub web editor for files. No laptop was involved in any of it.</p>
 
-<p>What it produced, and what happened when I checked it: of the <code>30,000</code> rows in the bundled CSV, <code>3,388</code> had zero impressions in the prior 30 days and were labelled not-declining by arithmetic rather than by anything the model read. Scored on the <code>26,612</code> pages where decline was actually possible, ROC AUC fell from <code>0.750</code> to <code>0.565</code> and Precision@50 from <code>0.740</code> to <code>0.600</code>, against a base rate of <code>0.611</code>. The Precision@50 of <code>0.680</code> I had already published is withdrawn.</p>
+<p>What it produced, and what happened when I checked it: of the <code>30,000</code> rows in the bundled CSV, <code>3,388</code> had zero impressions in the prior 30 days and were labelled not-declining by arithmetic rather than by anything the model read. Scored on the <code>26,612</code> pages where decline was actually possible, the random forest's ROC AUC fell from <code>0.750</code> to <code>0.565</code> and Precision@50 from <code>0.740</code> to <code>0.600</code>, against a base rate of <code>0.611</code>. The Precision@50 of <code>0.680</code> I had already published is withdrawn.</p>
 
 <ul>
 <li><a href="https://github.com/Jericho-Ram/FlyRank-Internship-ML/blob/main/scripts/03_train_model.py">The training script</a> &mdash; <code>scripts/03_train_model.py</code></li>
