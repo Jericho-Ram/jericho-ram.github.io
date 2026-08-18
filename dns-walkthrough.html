@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DNS walkthrough &mdash; Edo Sanjaya Perkasa</title>
+<meta name="description" content="What happens between someone typing edosanjayap.flyrank.ai and my host answering. Written before the subdomain exists, so it works as a checklist when it does.">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+<a class="mark" href="index.html">ES</a>
+<nav>
+<a href="index.html">HOME</a>
+<a href="cases.html">PROOF</a>
+<a href="failure-modes.html">FAILURE MODES</a>
+<a href="about.html">ABOUT</a>
+<a href="cv.html">CV</a>
+<a href="contact.html">CONTACT</a>
+</nav>
+</header>
+
+<main>
+
+<h1>DNS walkthrough</h1>
+
+<p class="meta">WRITTEN BEFORE THE SUBDOMAIN EXISTS, SO IT CAN BE USED AS A CHECKLIST WHEN IT DOES</p>
+
+<p>What actually happens when someone types <code>edosanjayap.flyrank.ai</code>? Does it mean it's a different site?</p>
+
+<p>No &mdash; it's the same site. When someone types <code>edosanjayap.flyrank.ai</code>, the browser looks the name up, gets pointed at <code>jericho-ram.github.io</code>, and asks GitHub for the page, which serves my site because I told it that name belongs to me.</p>
+
+<p>The browser asks a resolver, which asks the root, then the <code>.ai</code> servers, then FlyRank's nameservers. Each one only knows who to ask next. There's no single registry holding every name &mdash; the answer is assembled by walking the chain.</p>
+
+<p>The record is a CNAME: a name pointing at another name, not at a number. Mine will hold <code>jericho-ram.github.io</code>. It has to be a CNAME because GitHub can change its address anytime it wants. It works like an instruction in the bakery: the SOP says "get the bread flour," not "third bin from the left." If the bin moves, the SOP still works, because it names the thing rather than the location. An A record would be the bin number &mdash; write it down and you have to rewrite it every time something moves.</p>
+
+<p>Resolvers cache answers, so old ones keep circulating until they expire. That's why a new record doesn't work instantly.</p>
+
+<p>Ops creates the record on FlyRank's side. I add the custom domain in GitHub's settings. Neither half works alone &mdash; without the record nothing points at GitHub, and without the setting GitHub doesn't know whose site to serve.</p>
+
+<hr>
+
+<h2>Checklist, for when the subdomain lands</h2>
+
+<ol>
+<li>Confirm with Ops that the CNAME for <code>edosanjayap.flyrank.ai</code> points at <code>jericho-ram.github.io</code></li>
+<li>In the repo: Settings &rarr; Pages &rarr; Custom domain &rarr; enter <code>edosanjayap.flyrank.ai</code> &rarr; Save</li>
+<li>Wait for the DNS check to pass. If it fails immediately, that's usually cache, not a mistake &mdash; wait and re-check</li>
+<li>Tick "Enforce HTTPS" once the certificate has been issued</li>
+<li>Load the address logged out, in a private window, and confirm the padlock</li>
+<li>Confirm <code>jericho-ram.github.io</code> still resolves &mdash; both addresses should keep working</li>
+</ol>
+
+</main>
+</body>
+</html>
+
