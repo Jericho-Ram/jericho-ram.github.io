@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Capstone &mdash; Edo Sanjaya Perkasa</title>
+<meta name="description" content="General AI Fluency capstone: the stack I work in, the site you're reading, and the agent that audits it. Each one links to the thing that proves it.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+<a class="mark" href="index.html">ES</a>
+<nav>
+<a href="index.html">HOME</a>
+<a href="cases.html">PROOF</a>
+<a href="failure-modes.html">FAILURE MODES</a>
+<a href="about.html">ABOUT</a>
+<a href="cv.html">CV</a>
+<a href="contact.html">CONTACT</a>
+</nav>
+</header>
+
+<main>
+
+<h1>The stack, the site, and the agent</h1>
+
+<p class="meta">GENERAL AI FLUENCY CAPSTONE &middot; WEEK 6</p>
+
+<p>Three aspects with the link provided to the artifact with full information. Every number below reproduces from the repo it links to.</p>
+
+<hr>
+
+<h2>01 &middot; The stack</h2>
+
+<p>The pipeline runs end to end from a phone &mdash; Colab for notebooks, Termux for git, the GitHub web editor for files. No laptop was involved in any of it.</p>
+
+<p>What it produced, and what happened when I checked it: of the <code>30,000</code> rows in the bundled CSV, <code>3,388</code> had zero impressions in the prior 30 days and were labelled not-declining by arithmetic rather than by anything the model read. Scored on the <code>26,612</code> pages where decline was actually possible, ROC AUC fell from <code>0.750</code> to <code>0.565</code> and Precision@50 from <code>0.740</code> to <code>0.600</code>, against a base rate of <code>0.611</code>. The Precision@50 of <code>0.680</code> I had already published is withdrawn.</p>
+
+<ul>
+<li><a href="https://github.com/Jericho-Ram/FlyRank-Internship-ML/blob/main/scripts/03_train_model.py">The training script</a> &mdash; <code>scripts/03_train_model.py</code></li>
+<li><a href="https://github.com/Jericho-Ram/FlyRank-Internship-ML/blob/main/work/notebooks/w03_feature_leakage_check.ipynb">The leakage notebook</a> &mdash; five tests, all five results</li>
+<li><a href="https://github.com/Jericho-Ram/FlyRank-Internship-ML/tree/main/skills">The skills library</a> &mdash; thirteen instruction files, one task each</li>
+<li><a href="cases.html">The three cases, written up</a></li>
+</ul>
+
+<h2>02 &middot; The site</h2>
+
+<p>Plain HTML, one shared stylesheet, GitHub Pages. Chosen over Jekyll and Astro because both need a build step I cannot run on a phone. The limit is named with a trigger rather than a feeling: when the same header needs editing in four places, it is time to switch.</p>
+
+<ul>
+<li><a href="index.html">The site itself</a> &mdash; six pages, one <code>style.css</code></li>
+<li><a href="dns-walkthrough.html">DNS walkthrough</a> &mdash; written before the subdomain exists, so it works as a checklist when it lands</li>
+<li><a href="failure-modes.html">Seven failure modes</a> &mdash; each with a fix beside it, or a note that none is applied</li>
+</ul>
+
+<h2>03 &middot; The agent</h2>
+
+<p>A claim auditor: it takes a number published on a page and traces it back to the file and line that produced it. I ran it against this site before submitting the spec that describes it, and the result changed the spec.</p>
+
+<p>It found two things that looked wrong. Only one was. A grouped split reported as buying <code>0.008</code> subtracts to <code>0.007</code> from the two published figures &mdash; but at four decimals the split scored <code>0.9008</code> against <code>0.9085</code>, a real gap of <code>0.0077</code>. Every figure was correct; the page had rounded away the precision a reader needed to check it. The second was real: a chart caption claimed all <code>30,000</code> rows while the plotting call passed the filtered frame at <code>26,612</code>.</p>
+
+<ul>
+<li><a href="https://github.com/Jericho-Ram/FlyRank-Internship-ML/blob/main/skills/auditing-published-claims/SKILL.md">The auditor spec</a> &mdash; <code>skills/auditing-published-claims/SKILL.md</code></li>
+</ul>
+
+<hr>
+
+<h2 class="limit">What this doesn't show</h2>
+
+<p>The auditor has no trigger hook. It runs when I ask it, on the page I hand it, and the discrepancy that starts a run is one I noticed first &mdash; it supplies provenance, not suspicion. Its one unprompted flag was a false positive: it compared a date-filtered pull against an unfiltered one and reported the filter as a defect. That failure is written into the spec, because it is the same population error the model itself was built to catch.</p>
+
+</main>
+</body>
+</html>
+
