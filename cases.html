@@ -35,7 +35,7 @@
 
 <p>Of the <code>30,000</code> rows in the bundled CSV, <code>3,388</code> (<code>11.3%</code>) had zero impressions in the prior 30 days, and every one of them was labelled not-declining — impressions cannot fall below zero. The model was scoring a population that contained thousands of rows whose answer was fixed by arithmetic before any feature was read.</p>
 
-<p>Scoring only the <code>26,612</code> pages where decline was arithmetically possible, ROC AUC fell from <code>0.750</code> to <code>0.565</code> and Precision@50 from <code>0.740</code> to <code>0.600</code>, against a base rate of <code>0.611</code>. The model was doing a job I could have done with a filter. The hard question — which of the pages that could have gone either way actually declined — is the one it could not answer.</p>
+<p>Scoring only the <code>26,612</code> pages where decline was arithmetically possible, the random forest's ROC AUC fell <code>0.750</code> to <code>0.565</code> and Precision@50 from <code>0.740</code> to <code>0.600</code>, against a base rate of <code>0.611</code>. The model was doing a job I could have done with a filter. The hard question — which of the pages that could have gone either way actually declined — is the one it could not answer.</p>
 
 <figure>
 <img src="charts/trend_distribution.svg" alt="Bar chart of label distribution across the 26,612 pages where decline was arithmetically possible: down 16,300; stable 5,960; up 4,390.">
