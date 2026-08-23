@@ -65,7 +65,7 @@
 <p>So I carry <code>ga4_usable</code> as a <code>0/1</code> flag alongside the GA4 features, and the model gets told which is which. At item grain the features are <code>59%</code> missing, and they are missing because a client had no GA4 that month, not because a page had no engagement. That distinction decides whether a GA4 feature measures behaviour or just identifies a client.</p>
 
 <figure>
-<img src="charts/top_feature_importance.svg" alt="Bar chart of top model features by importance: log_impressions_90d 0.848, log_clicks_90d 0.588, days_with_impressions 0.43, word_count 0.412, avg_position 0.393, days_since_last_update 0.24.">
+<img src="charts/top_feature_importance.svg" alt="The bar chart ranks twelve model features by importance. The top two, log_impressions_90d at 0.848 and log_clicks_90d at 0.588, carry most of the weight; the other ten range from 0.43 to 0.116. The full values are in the repo.">
 <figcaption>Top features by importance. The two largest are both <code>90d</code> aggregates &mdash; the same window flagged in failure mode <code>3</code>. Source: <code>outputs/charts/top_feature_importance.svg</code>, recoloured, data unchanged.</figcaption>
 </figure>
 
