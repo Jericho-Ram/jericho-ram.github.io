@@ -1,13 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="520" viewBox="0 0 960 520">
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="150" viewBox="0 0 360 150">
 <rect width="100%" height="100%" fill="#FAF9F6"/>
-<text x="480.0" y="34" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-weight="600" font-size="24" fill="#2B3D18">Trend direction distribution</text>
-<text x="178" y="152.3" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="13" fill="#16181C">down</text>
-<rect x="190" y="70.0" width="730.0" height="126.7" fill="#2B3D18" rx="4"/>
-<text x="928.0" y="152.3" font-family="IBM Plex Mono, monospace" font-size="13" fill="#16181C">1.63e+04</text>
-<text x="178" y="289.0" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="13" fill="#16181C">stable</text>
-<rect x="190" y="206.7" width="267.6" height="126.7" fill="#2B3D18" rx="4"/>
-<text x="465.6" y="289.0" font-family="IBM Plex Mono, monospace" font-size="13" fill="#16181C">5.96e+03</text>
-<text x="178" y="425.7" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="13" fill="#16181C">up</text>
-<rect x="190" y="343.3" width="197.0" height="126.7" fill="#2B3D18" rx="4"/>
-<text x="395.0" y="425.7" font-family="IBM Plex Mono, monospace" font-size="13" fill="#16181C">4.39e+03</text>
+<text x="4" y="26" font-family="IBM Plex Sans, sans-serif" font-weight="600" font-size="16" fill="#2B3D18">Trend direction distribution</text>
+<text x="4" y="48" font-family="IBM Plex Mono, monospace" font-size="14" fill="#16181C">down</text>
+<text x="356" y="48" text-anchor="end" font-family="IBM Plex Mono, monospace" font-weight="500" font-size="14" fill="#16181C">1.63e+04</text>
+<rect x="4" y="55" width="352.0" height="9" fill="#2B3D18" rx="2"/>
+<text x="4" y="82" font-family="IBM Plex Mono, monospace" font-size="14" fill="#16181C">stable</text>
+<text x="356" y="82" text-anchor="end" font-family="IBM Plex Mono, monospace" font-weight="500" font-size="14" fill="#16181C">5.96e+03</text>
+<rect x="4" y="89" width="128.7" height="9" fill="#2B3D18" rx="2"/>
+<text x="4" y="116" font-family="IBM Plex Mono, monospace" font-size="14" fill="#16181C">up</text>
+<text x="356" y="116" text-anchor="end" font-family="IBM Plex Mono, monospace" font-weight="500" font-size="14" fill="#16181C">4.39e+03</text>
+<rect x="4" y="123" width="94.8" height="9" fill="#2B3D18" rx="2"/>
 </svg>

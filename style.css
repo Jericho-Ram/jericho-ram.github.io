@@ -30,13 +30,13 @@ header{max-width:36rem;margin:0 auto;padding:8vh 1.5rem 0}
 border-radius:10px;background:var(--signal);color:var(--paper);font-weight:600;
 text-decoration:none;margin-bottom:1.5rem}
 nav{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.8125rem;letter-spacing:.04em;
+display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;
 padding-bottom:1.5rem;border-bottom:1px solid var(--signal);margin-bottom:2.5rem}
-nav a,nav span{margin-right:1.25rem;display:inline-block}
+nav a,nav span{display:inline-block;padding:.4rem 0}
 /* Current page is plain text, not a link, so nothing is signalled by colour alone. */
 nav span[aria-current]{color:var(--ink);font-weight:500}
 
 /* Charts are pipeline output, recoloured to the palette. Data untouched. */
 figure{margin:1.5rem 0 2rem}
-figure svg,figure img{width:100%;height:auto;display:block;border:1px solid rgba(43,61,24,.25)}
-figcaption{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.75rem;
-letter-spacing:.04em;margin-top:.5rem;line-height:1.5}
+figure svg,figure img{max-width:100%;height:auto;display:block;border:1px solid rgba(43,61,24,.25)}
+figcaption{font-size:.875rem;margin-top:.5rem;line-height:1.5}
