@@ -25,14 +25,16 @@
 
 <main>
 
-<h1>I found the leak in my own model, and the number I published didn't survive it.</h1>
+<h1>I build one scoring model, and I name where it stops working.</h1>
 
-<p>A model that is obviously wrong is easy to catch. A model that is quietly wrong — right about the easy cases, useless on the hard ones — passes every check you run and costs you a quarter before anyone notices.</p>
+<p>Mine ranked 30,000 pages by risk of losing search traffic. <code>3,388</code> had zero impressions the month before. A page on zero cannot fall. Those rows were answered by arithmetic, not by the model.</p>
+
+<p>I found it in my own build. I had already published a number that rested on it.</p>
 
 <p>What I do about that:</p>
 
 <ul>
-<li>Hold out whole clients, and measure what holding them out actually bought.</li>
+<li>Hold out whole clients, then measure what it bought &mdash; <code>0.901</code> against a random split's <code>0.908</code>.</li>
 <li>Quote only numbers that reproduce from a clean clone.</li>
 <li>Name the limits, with a fix beside each, in the repo.</li>
 <li>Label every figure with the slice it came from.</li>
@@ -40,7 +42,7 @@
 
 <h2 class="limit">What that discipline cost me</h2>
 
-<p>On my own build it cost me my headline number. The random forest's ROC AUC <code>0.750</code> fell to <code>0.565</code> once I removed the rows that could never have declined, and the Precision@50 of <code>0.680</code> I had already published is withdrawn. Both are written up in full, with the code that produced them.</p>
+<p>Removing those rows took the random forest's ROC AUC from <code>0.750</code> to <code>0.565</code>. A coin flip is <code>0.500</code>. Precision@50 came to <code>0.600</code> against a base rate of <code>0.611</code> &mdash; below the base rate. The <code>0.680</code> I had published is withdrawn. All of it is written up with the code that produced it.</p>
 
 <hr>
 
