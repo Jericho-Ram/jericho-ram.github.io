@@ -66,3 +66,12 @@ button[disabled]{opacity:.55;cursor:default}
 #status:empty{margin:0}
 #status.ok{color:var(--signal)}
 #status.bad{color:var(--ink);font-weight:600}
+
+/* Tables. Numbers in mono, hairlines only, no fills. */
+table{border-collapse:collapse;width:100%;margin:1.5rem 0 .5rem;font-size:.9375rem}
+th{font-family:"IBM Plex Mono",ui-monospace,monospace;font-weight:500;font-size:.75rem;
+letter-spacing:.06em;color:var(--signal);text-align:left;
+padding:0 1rem .5rem 0;border-bottom:1px solid rgba(43,61,24,.3)}
+td{padding:.6rem 1rem .6rem 0;border-bottom:1px solid rgba(43,61,24,.15);vertical-align:top}
+td.n{font-family:"IBM Plex Mono",ui-monospace,monospace;font-weight:400;font-size:.875rem}
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
