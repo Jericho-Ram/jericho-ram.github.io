@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Contact â€” Edo Sanjaya Perkasa</title>
+<title>Contact &mdash; Edo Sanjaya Perkasa</title>
 <meta name="description" content="Send one dataset and one ranking question. Free up to 100,000 rows. Reply within one business day, work back within three.">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
@@ -27,7 +27,7 @@
 
 <h1>Send one dataset and one question you want ranked.</h1>
 
-<p>One file â€” CSV or Parquet, up to <code>100,000</code> rows. One question, phrased as a ranking: which of these should we look at first, and why. Not two questions. Not a whole warehouse.</p>
+<p>One file &mdash; CSV or Parquet, up to <code>100,000</code> rows. One question, phrased as a ranking: which of these should we look at first, and why. Not two questions. Not a whole warehouse.</p>
 
 <p>Free at that size. I reply within one business day, and you get the work back within three business days. Message me on a Saturday and you'll hear from me Monday. Anything larger than the cap gets a quote first, not silence.</p>
 
@@ -37,12 +37,12 @@
 
 <h2>Send it</h2>
 
-<p>Every field below is something I would have asked for in a reply anyway. Filling them now saves a round trip. If you don't know the last two, leave them and say so â€” working that out is part of the job.</p>
+<p>Every field below is something I would have asked for in a reply anyway. Filling them now saves a round trip. If you don't know the last two, leave them and say so &mdash; working that out is part of the job.</p>
 
 <form id="brief" action="https://api.web3forms.com/submit" method="POST">
 
 <input type="hidden" name="access_key" value="6954dd26-3f11-4a5f-a5fc-2ab0e3260a7a">
-<input type="hidden" name="subject" value="Scoping brief â€” jericho-ram.github.io">
+<input type="hidden" name="subject" value="Scoping brief &mdash; jericho-ram.github.io">
 <input type="hidden" name="from_name" value="Portfolio contact form">
 <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
 
@@ -101,7 +101,7 @@
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     button.disabled = true;
-    button.textContent = 'SENDINGâ€¦';
+    button.textContent = 'SENDING\u2026';
     status.className = '';
     status.textContent = '';
 
@@ -128,7 +128,7 @@
         button.disabled = false;
         button.textContent = 'SEND THE BRIEF';
         status.className = 'bad';
-        status.textContent = 'That did not send. Email edosanjayaperkasa@gmail.com instead â€” it reaches me the same way.';
+        status.textContent = 'That did not send. Email edosanjayaperkasa@gmail.com instead \u2014 it reaches me the same way.';
       });
   });
 })();
