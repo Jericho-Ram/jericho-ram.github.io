@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Contact — Edo Sanjaya Perkasa</title>
+<title>Contact â€” Edo Sanjaya Perkasa</title>
 <meta name="description" content="Send one dataset and one ranking question. Free up to 100,000 rows. Reply within one business day, work back within three.">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
@@ -27,7 +27,7 @@
 
 <h1>Send one dataset and one question you want ranked.</h1>
 
-<p>One file — CSV or Parquet, up to <code>100,000</code> rows. One question, phrased as a ranking: which of these should we look at first, and why. Not two questions. Not a whole warehouse.</p>
+<p>One file â€” CSV or Parquet, up to <code>100,000</code> rows. One question, phrased as a ranking: which of these should we look at first, and why. Not two questions. Not a whole warehouse.</p>
 
 <p>Free at that size. I reply within one business day, and you get the work back within three business days. Message me on a Saturday and you'll hear from me Monday. Anything larger than the cap gets a quote first, not silence.</p>
 
@@ -35,19 +35,51 @@
 
 <p>What comes back is what your data can and cannot support, before any quote. If the label can be reconstructed from the features, or the feature window overlaps the outcome window, I'll tell you that instead of sending a score. That is a more common outcome than people expect, and it is cheaper to hear from me than from a model in production.</p>
 
-<h2>What to put in the email</h2>
+<h2>Send it</h2>
 
-<ul>
-<li>The file, or a link to it.</li>
-<li>The one ranking question, in a sentence.</li>
-<li>What the rows are — pages, accounts, tickets, SKUs.</li>
-<li>Which column is the outcome, if you already know.</li>
-<li>Roughly when each column is recorded, if you know. This is what decides whether there's a leak.</li>
-</ul>
+<p>Every field below is something I would have asked for in a reply anyway. Filling them now saves a round trip. If you don't know the last two, leave them and say so â€” working that out is part of the job.</p>
 
-<p>If you don't know the last two, send it anyway and say so. Working that out is part of the job.</p>
-<p>If you'd rather talk it through first, <a href="https://cal.com/edosanjayap">book fifteen minutes</a>. Email is faster if you already have the file.</p>
-  
+<form id="brief" action="https://api.web3forms.com/submit" method="POST">
+
+<input type="hidden" name="access_key" value="6954dd26-3f11-4a5f-a5fc-2ab0e3260a7a">
+<input type="hidden" name="subject" value="Scoping brief â€” jericho-ram.github.io">
+<input type="hidden" name="from_name" value="Portfolio contact form">
+<input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+
+<label for="f-name">YOUR NAME</label>
+<input id="f-name" type="text" name="name" required autocomplete="name">
+
+<label for="f-email">EMAIL</label>
+<input id="f-email" type="email" name="email" required autocomplete="email">
+
+<label for="f-link">LINK TO THE FILE</label>
+<input id="f-link" type="text" name="file_link" inputmode="url">
+<p class="help">Drive, Dropbox, S3, anywhere I can download it. The form can't carry an attachment.</p>
+
+<label for="f-question">THE ONE RANKING QUESTION</label>
+<textarea id="f-question" name="ranking_question" rows="3" required></textarea>
+<p class="help">One sentence. Which of these should we look at first, and why.</p>
+
+<label for="f-rows">WHAT THE ROWS ARE</label>
+<input id="f-rows" type="text" name="rows_are">
+<p class="help">Pages, accounts, tickets, SKUs.</p>
+
+<label for="f-outcome">OUTCOME COLUMN</label>
+<input id="f-outcome" type="text" name="outcome_column">
+<p class="help">If you already know which one it is.</p>
+
+<label for="f-timing">WHEN EACH COLUMN IS RECORDED</label>
+<textarea id="f-timing" name="column_timing" rows="3"></textarea>
+<p class="help">Rough is fine. This is what decides whether there's a leak.</p>
+
+<button type="submit" id="send">SEND THE BRIEF</button>
+
+<p id="status" role="status" aria-live="polite"></p>
+
+</form>
+
+<p>If you'd rather talk it through first, <a href="https://cal.com/edosanjayap">book fifteen minutes</a>. The form is faster if you already have the file.</p>
+
 <hr>
 
 <p class="meta"><a href="mailto:edosanjayaperkasa@gmail.com">edosanjayaperkasa@gmail.com</a><br>
@@ -56,5 +88,51 @@
 <a href="https://linkedin.com/in/edosanjayap">linkedin.com/in/edosanjayap</a></p>
 
 </main>
+
+<script>
+// Progressive enhancement. Without JS the form does a plain POST to the same
+// endpoint and lands on the Web3Forms confirmation page. With JS it posts JSON
+// and reports back here, so the reader never leaves the page.
+(function () {
+  var form = document.getElementById('brief');
+  var status = document.getElementById('status');
+  var button = document.getElementById('send');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    button.disabled = true;
+    button.textContent = 'SENDINGâ€¦';
+    status.className = '';
+    status.textContent = '';
+
+    var payload = {};
+    new FormData(form).forEach(function (v, k) { payload[k] = v; });
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        if (data.success) {
+          form.reset();
+          button.textContent = 'SENT';
+          status.className = 'ok';
+          status.textContent = 'Received. I reply within one business day.';
+        } else {
+          throw new Error(data.message || 'rejected');
+        }
+      })
+      .catch(function () {
+        button.disabled = false;
+        button.textContent = 'SEND THE BRIEF';
+        status.className = 'bad';
+        status.textContent = 'That did not send. Email edosanjayaperkasa@gmail.com instead â€” it reaches me the same way.';
+      });
+  });
+})();
+</script>
+
 </body>
 </html>
