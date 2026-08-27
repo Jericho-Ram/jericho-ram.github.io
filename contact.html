@@ -50,7 +50,7 @@
 <input id="f-name" type="text" name="name" required autocomplete="name">
 
 <label for="f-email">EMAIL</label>
-<input id="f-email" type="email" name="email" required autocomplete="email">
+<input id="f-email" type="email" name="email" required autocomplete="email" pattern="[^@\s]+@[^@\s]+\.[a-zA-Z]{2,}" title="Include a full domain, like name@company.com">
 
 <label for="f-link">LINK TO THE FILE</label>
 <input id="f-link" type="text" name="file_link" inputmode="url">
