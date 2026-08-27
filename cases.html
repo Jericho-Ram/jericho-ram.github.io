@@ -53,9 +53,9 @@
 <tr><td>Scored population</td><td class="n">26,612</td><td class="n">26,604</td></tr>
 <tr><td>Filters</td><td>zero prior impressions</td><td>no recorded position, then zero prior impressions</td></tr>
 <tr><td>Validation</td><td>one runtime, single split</td><td>mean of 5 client-grouped folds</td></tr>
-<tr><td>Feature set</td><td>not named</td><td>permissive</td></tr>
-<tr><td>RF ROC AUC</td><td class="n">0.565</td><td class="n">0.645</td></tr>
-<tr><td>RF Precision@50</td><td class="n">0.600</td><td class="n">0.844</td></tr>
+<tr><td>Feature set</td><td>18 numeric, 8 categorical</td><td>permissive</td></tr>
+<tr><td>Selected model ROC AUC</td><td class="n">0.583</td><td class="n">0.645</td></tr>
+<tr><td>Selected model Precision@50</td><td class="n">0.740</td><td class="n">0.844</td></tr>
 <tr><td>Base rate</td><td class="n">0.611</td><td class="n">0.611</td></tr>
 </tbody>
 </table>
@@ -63,7 +63,7 @@
 
 <p>The counts differ by 8 because the filters overlap: <code>1,205</code> rows have no recorded position, <code>3,388</code> have zero prior impressions, and <code>1,197</code> are in both.</p>
 
-<p>The <code>0.600</code> comes from unnamed features on a single runtime. The <code>0.844</code> comes from five client-grouped folds on the permissive set. The model did not get better between the two &mdash; the single-runtime measurement is the weaker one.</p>
+<p>The <code>0.740</code> comes from the logistic regression the pipeline selects, on a single client-holdout split. The <code>0.844</code> comes from five client-grouped folds on the permissive random forest. The model did not get better between the two &mdash; the cross-validated measurement is the more reliable one.</p>
 
 <h2 class="limit">The number that didn't reproduce</h2>
 
