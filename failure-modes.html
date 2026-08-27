@@ -48,8 +48,7 @@
 <p>It reads only the top 50 rows, so it moves first when tie-breaking changes. Quote ROC AUC alongside it, never alone. The pipeline now selects the best model by ROC AUC rather than Precision@50.</p>
 
 <h3>7. On the valid population, no model discriminates well.</h3>
-<p>Best ROC AUC across three models is <code>0.583</code>. The decision tree returns <code>0.505</code>, indistinguishable from random, and the hand rule <code>0.380</code>, below it. No fix applied — this is a finding, not a defect. The next step is a feature question, not a model question.</p>
-
+<p>Best ROC AUC across three models is <code>0.583</code>. The decision tree returns <code>0.505</code>, indistinguishable from random, and the hand rule <code>0.380</code>, below it. No fix applied — this is a finding, not a defect. The next step is a feature question, not a model question. This describes the reference pipeline's single-runtime measurement on <code>26,612</code> rows; the paper's cross-validated run is a separate measurement and reports higher figures.</p>
 <hr>
 
 <p>The evidence behind items <code>1</code>, <code>2</code>, and <code>4</code> is written up on the <a href="cases.html">cases page</a>.</p>
