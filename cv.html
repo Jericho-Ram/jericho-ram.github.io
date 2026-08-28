@@ -1,152 +1,232 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CV — Edo Sanjaya Perkasa</title>
 <meta name="description" content="Scoring and ranking models, built with a stated baseline and named failure modes. Projects, experience, and what I can't do yet.">
+<link rel="icon" type="image/png" sizes="32x32" href="icon-32.png?v=3">
+<link rel="icon" type="image/png" sizes="16x16" href="icon-16.png?v=3">
+<link rel="icon" href="favicon.ico?v=3" sizes="any">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
+<meta name="theme-color" content="#2F3822">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="legacy.css">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Mono:wght@500;600&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-<a class="mark" href="index.html">ES</a>
-<nav>
-<a href="index.html">HOME</a>
-<a href="cases.html">PROOF</a>
-<a href="failure-modes.html">FAILURE MODES</a>
-<a href="about.html">ABOUT</a>
-<span aria-current="page">CV</span>
-<a href="contact.html">CONTACT</a>
-</nav>
+<header class="masthead">
+  <div class="wrap">
+    <a class="monogram" href="index.html">ES</a>
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="cases.html">Proof</a>
+      <a href="failure-modes.html">Failure modes</a>
+      <a href="about.html">About</a>
+      <a href="cv.html" aria-current="page">CV</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
 </header>
 
 <main>
+  <section class="hero">
+    <div class="wrap">
+      <p class="kicker"><span>Data Analyst</span><span>Scoring and ranking models</span><span>West Java, Indonesia</span></p>
+      <h1>Edo Sanjaya Perkasa</h1>
+      <p class="lede">Data analysis is interpretation, not reading. A number that nobody can act on hasn't done its job.</p>
+    </div>
+  </section>
 
-<h1>Edo Sanjaya Perkasa</h1>
+  <div class="wrap">
 
-<p class="meta">Data Analyst &middot; Scoring and Ranking Models<br>
-West Java, Indonesia</p>
+    <section class="rec reveal">
+      <div class="rail"><b>Summary</b></div>
+      <div>
+        <h2>Results that have been checked before you see them.</h2>
+        <p>I deliver results checked against a held-out split, against a baseline, against the ways the model can fail. When the data can't support the question, I say so instead of scoring it.</p>
+        <div class="callout">
+          <p>Thirteen years running my own business is why I can tell a decision-maker what they're actually looking at.</p>
+        </div>
+      </div>
+    </section>
 
-<h2>Summary</h2>
-<p>Data analyst, scoring and ranking models. Data analysis is interpretation, not reading. A number that nobody can act on hasn't done its job.</p>
+    <section class="rec reveal">
+      <div class="rail"><b>Projects</b><br>three builds</div>
+      <div>
+        <h2>What I've built, and what each one cost to check.</h2>
 
-<p>I deliver results that have been checked &mdash; against a held-out split, against a baseline, against the ways the model can fail. When the data can't support the question, I say so instead of scoring it.</p>
+        <article class="entry">
+          <h3>Content Refresh Opportunity Model</h3>
+          <p class="meta">FlyRank AI Internship · Python, pandas, scikit-learn, NumPy · 2026</p>
+          <ul class="bullets">
+            <li>Ranked <span class="num">30,000</span> existing pages by likelihood of losing search visibility, for a content lead with more pages than they can open and no time to work through them by hand.</li>
+            <li>Found the label could be reconstructed from the features — <span class="num">3,388</span> pages with no prior impressions had a declining rate of exactly zero by construction.</li>
+            <li>The model was separating pages that couldn't decline from pages that could. A filter, not a prediction.</li>
+            <li>Rescored on the population where decline was arithmetically possible, withdrew the figure I had already published, and wrote the retraction into the report itself.</li>
+            <li>Built the held-out split in NumPy and measured what it bought — <span class="num">0.901</span> against a random split's <span class="num">0.908</span> — rather than assuming the split was honest.</li>
+            <li>Write-up, notebook, and named failure modes: <a href="cases.html">the cases page</a>.</li>
+          </ul>
+        </article>
 
-<p>Thirteen years running my own business is why I can tell a decision-maker what they're actually looking at.</p>
+        <article class="entry">
+          <h3>Lead Generation and Scoring Agent</h3>
+          <p class="meta">Claude API · 2026</p>
+          <ul class="bullets">
+            <li>Built for businesses expanding into new markets, who need the right partners and real contacts, not a list to work through.</li>
+            <li>Agent generates and scores leads against the criteria that matter for the specific expansion, so the output is ordered by fit rather than by whatever the search returned.</li>
+            <li>Built under a zero-cost constraint: no paid data provider, no subscription tooling.</li>
+          </ul>
+        </article>
 
-<hr>
+        <article class="entry">
+          <h3>Menu and Customer Ranking</h3>
+          <p class="meta">pandas, sentence-transformers, HDBSCAN · 2026</p>
+          <ul class="bullets">
+            <li>Self-directed build, briefed by my own F&amp;B operating experience and reviewed with a business colleague on what an owner actually needs to decide: menu, which customers to approach, and which ads bring buyers.</li>
+            <li>Grouped customers from a <span class="num">500</span>-row Indonesian F&amp;B dataset built and cleaned from scratch, using sentence-transformers embeddings and HDBSCAN clustering.</li>
+            <li>Output was a ranked menu list and named customer categories — the form an owner could act on, rather than a cluster plot to interpret.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
 
-<h2>Projects</h2>
+    <section class="rec reveal">
+      <div class="rail"><b>Experience</b></div>
+      <div>
+        <h2>Five roles, one habit: check it before reporting it.</h2>
 
-<h3>Content Refresh Opportunity Model</h3>
-<p class="meta">FlyRank AI Internship &middot; Python, pandas, scikit-learn, NumPy &middot; 2026</p>
-<ul>
-<li>Ranked 30,000 existing pages by likelihood of losing search visibility, in Python and pandas, for a content lead with more pages than they can open and no time to work through them by hand</li>
-<li>Found the label could be reconstructed from the features &mdash; 3,388 pages with no prior impressions had a declining rate of exactly zero by construction</li>
-<li>The model was separating pages that couldn't decline from pages that could. A filter, not a prediction.</li>
-<li>Rescored in scikit-learn on the population where decline was arithmetically possible, withdrew the figure I had already published, and wrote the retraction into the report itself</li>
-<li>Built the held-out split in NumPy and measured what it bought &mdash; 0.901 against a random split's 0.908 &mdash; rather than assuming the split was honest</li>
-<li>Write-up, notebook, and named failure modes: <a href="https://jericho-ram.github.io/cases.html">jericho-ram.github.io/cases.html</a></li>
-</ul>
+        <article class="entry">
+          <h3>Machine Learning Engineering Intern</h3>
+          <p class="meta">FlyRank AI — Remote · July 2026 – Present</p>
+          <ul class="bullets">
+            <li>Weekly graded deliverables on warehouse data in Python, pandas, and Jupyter: embeddings and clustering, intent and opportunity modelling.</li>
+            <li>Audit models for leakage before reporting results — checking whether a feature can reconstruct the label, and whether a score survives on the population where the question is actually answerable.</li>
+            <li>Benchmark every model against a stated baseline, including hand-written rules, so a score is read as a gap over something rather than on its own.</li>
+            <li>Document failure modes and their fixes alongside results, with provenance written into the scripts that generate reports rather than only into the reports.</li>
+          </ul>
+        </article>
 
-<h3>Lead Generation and Scoring Agent</h3>
-<p class="meta">Claude API &middot; 2026</p>
-<ul>
-<li>Built for businesses expanding into new markets, who need the right partners and real contacts, not a list to work through</li>
-<li>Agent generates and scores leads on the Claude API against the criteria that matter for the specific expansion, so the output is ordered by fit rather than by whatever the search returned</li>
-<li>Built under a zero-cost constraint: no paid data provider, no subscription tooling</li>
-</ul>
+        <article class="entry">
+          <h3>Founder</h3>
+          <p class="meta">Pinya Co., Bandung · June 2026 – Present</p>
+          <ul class="bullets">
+            <li>Juice and beverage business, building toward premium event and wedding catering.</li>
+            <li>Built a Notion-based financial reporting system linking daily entries to monthly P&amp;L summaries.</li>
+          </ul>
+        </article>
 
-<h3>Menu and Customer Ranking</h3>
-<p class="meta">pandas, sentence-transformers, HDBSCAN &middot; 2026</p>
-<ul>
-<li>Self-directed build, briefed by my own F&amp;B operating experience and reviewed with a business colleague on what an owner actually needs to decide: menu, which customers to approach, and which ads bring buyers</li>
-<li>Grouped customers from a 500-row Indonesian F&amp;B dataset built and cleaned from scratch in pandas, using sentence-transformers embeddings and HDBSCAN clustering</li>
-<li>Output was a ranked menu list and named customer categories &mdash; the form an owner could act on, rather than a cluster plot to interpret</li>
-</ul>
+        <article class="entry">
+          <h3>AI Data Annotator &amp; Model Evaluator</h3>
+          <p class="meta">RWS Group, Remote · June 2026 – Present</p>
+          <ul class="bullets">
+            <li>Rank model outputs by human preference and evaluate response quality against project rubrics.</li>
+            <li>Apply detailed annotation guidelines consistently across Indonesian and Mandarin locales, to fixed deadlines with per-task quality thresholds.</li>
+          </ul>
+        </article>
 
-<hr>
+        <article class="entry">
+          <h3>Data Annotator</h3>
+          <p class="meta">CrowdGen, Remote · June 2026 – Present</p>
+          <ul class="bullets">
+            <li>Label and review text data against detailed task specifications, maintaining consistency across large task volumes.</li>
+            <li>Exercise judgment on ambiguous and edge-case items where the guidelines are underspecified.</li>
+          </ul>
+        </article>
 
-<h2>Experience</h2>
+        <article class="entry">
+          <h3>Founder &amp; Business Owner</h3>
+          <p class="meta">Selecta Bakery, West Java · 2013 – August 2026</p>
+          <ul class="bullets">
+            <li>Built and ran the business to a team of <span class="num">20</span>, with a repeat-customer base sustained over thirteen years.</li>
+            <li>Wrote and enforced SOPs across all <span class="num">20</span> staff, cutting refund and replacement requests by <span class="num">~85%</span> against written complaint records.</li>
+            <li>Ranked customers, products, and priorities for thirteen years on handwritten and printed paper. The models I build now do the same job on data I can check.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
 
-<h3>Machine Learning Engineering Intern</h3>
-<p class="meta">FlyRank AI &mdash; Remote &middot; July 2026 &ndash; Present</p>
-<ul>
-<li>Weekly graded deliverables on warehouse data in Python, pandas, and Jupyter: embeddings and clustering, intent and opportunity modelling</li>
-<li>Audit models for leakage before reporting results &mdash; checking whether a feature can reconstruct the label, and whether a score survives on the population where the question is actually answerable</li>
-<li>Benchmark every model against a stated baseline, including hand-written rules, so a score is read as a gap over something rather than on its own</li>
-<li>Document failure modes and their fixes alongside results, with provenance written into the scripts that generate reports rather than only into the reports</li>
-</ul>
+    <section class="rec reveal">
+      <div class="rail"><b>Skills</b></div>
+      <div>
+        <h2>Tools, and the discipline they're used with.</h2>
+        <dl class="skillset">
+          <div>
+            <dt>Analysis</dt>
+            <dd>Python · pandas · scikit-learn · NumPy · sentence-transformers · HDBSCAN · SQL fundamentals</dd>
+          </div>
+          <div>
+            <dt>Method</dt>
+            <dd>Leakage auditing · baseline comparison · held-out splits · failure-mode documentation</dd>
+          </div>
+          <div>
+            <dt>Environment</dt>
+            <dd>Jupyter · Google Colab · Git · GitHub · Claude API · n8n</dd>
+          </div>
+          <div>
+            <dt>Languages</dt>
+            <dd>English · Indonesian · Mandarin</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
 
-<h3>Founder</h3>
-<p class="meta">Pinya Co., Bandung &middot; June 2026 &ndash; Present</p>
-<ul>
-<li>Juice and beverage business, building toward premium event and wedding catering</li>
-<li>Built a Notion-based financial reporting system linking daily entries to monthly P&amp;L summaries</li>
-</ul>
+    <section class="rec reveal">
+      <div class="rail"><b>Education</b><br>and certifications</div>
+      <div>
+        <h2>Where the paper trail is.</h2>
 
-<h3>AI Data Annotator &amp; Model Evaluator</h3>
-<p class="meta">RWS Group, Remote &middot; June 2026 &ndash; Present</p>
-<ul>
-<li>Rank model outputs by human preference and evaluate response quality against project rubrics</li>
-<li>Apply detailed annotation guidelines consistently across Indonesian and Mandarin locales, to fixed deadlines with per-task quality thresholds</li>
-</ul>
+        <article class="entry">
+          <h3>Associate's Degree, Tourism and Hospitality Management</h3>
+          <p class="meta">Temasek International School, Bandung · 2006–2008 · Endorsed by Raffles Academy, Singapore</p>
+        </article>
 
-<h3>Data Annotator</h3>
-<p class="meta">CrowdGen, Remote &middot; June 2026 &ndash; Present</p>
-<ul>
-<li>Label and review text data against detailed task specifications, maintaining consistency across large task volumes</li>
-<li>Exercise judgment on ambiguous and edge-case items where the guidelines are underspecified</li>
-</ul>
+        <article class="entry">
+          <h3>O-Level</h3>
+          <p class="meta">2004–2006</p>
+        </article>
 
-<h3>Founder &amp; Business Owner</h3>
-<p class="meta">Selecta Bakery, West Java &middot; 2013 &ndash; August 2026</p>
-<ul>
-<li>Built and ran the business to a team of 20, with a repeat-customer base sustained over thirteen years</li>
-<li>Wrote and enforced SOPs across all 20 staff, cutting refund and replacement requests by ~85% against written complaint records</li>
-<li>Ranked customers, products, and priorities for thirteen years on handwritten and printed paper. The models I build now do the same job on data I can check</li>
-</ul>
+        <article class="entry">
+          <h3>Certifications</h3>
+          <p class="meta">Google AI Professional Certificate (7 courses) · Google × Coursera · July 2026<br>
+          PMI-CPMAI Introduction · PMI · April 2026<br>
+          Product Management: An Introduction · IBM × Coursera · March 2026</p>
+        </article>
+      </div>
+    </section>
 
-<hr>
+    <section class="rec reveal">
+      <div class="rail"><b>Contact</b></div>
+      <div>
+        <h2>Reach me here.</h2>
+        <ul class="contactlist">
+          <li><a href="mailto:edosanjayaperkasa@gmail.com">edosanjayaperkasa@gmail.com</a></li>
+          <li><a href="https://github.com/Jericho-Ram">github.com/jericho-ram</a></li>
+          <li><a href="https://linkedin.com/in/edosanjayap">linkedin.com/in/edosanjayap</a></li>
+        </ul>
+      </div>
+    </section>
 
-<h2>Skills</h2>
-
-<p class="meta">Python &middot; pandas &middot; scikit-learn &middot; NumPy &middot; sentence-transformers &middot; HDBSCAN &middot; SQL fundamentals<br>
-Leakage auditing &middot; baseline comparison &middot; held-out splits &middot; failure-mode documentation<br>
-JUPYTER &middot; GOOGLE COLAB &middot; GIT &middot; GITHUB &middot; CLAUDE API &middot; N8N<br>
-ENGLISH &middot; INDONESIAN &middot; MANDARIN</p>
-
-<hr>
-
-<h2>Education</h2>
-
-<h3>Associate's Degree, Tourism and Hospitality Management</h3>
-<p class="meta">TEMASEK INTERNATIONAL SCHOOL, BANDUNG &middot; 2006&ndash;2008<br>
-ENDORSED BY RAFFLES ACADEMY, SINGAPORE</p>
-
-<h3>O-Level</h3>
-<p class="meta">2004&ndash;2006</p>
-
-<hr>
-
-<h2>Certifications</h2>
-
-<p class="meta">GOOGLE AI PROFESSIONAL CERTIFICATE (7 COURSES) &middot; GOOGLE &times; COURSERA &middot; JULY 2026<br>
-PMI-CPMAI INTRODUCTION &middot; PMI &middot; APRIL 2026<br>
-PRODUCT MANAGEMENT: AN INTRODUCTION &middot; IBM &times; COURSERA &middot; MARCH 2026</p>
-
-<hr>
-
-
-
-<p class="meta"><a href="mailto:edosanjayaperkasa@gmail.com">edosanjayaperkasa@gmail.com</a><br>
-<a href="https://jericho-ram.github.io/">jericho-ram.github.io</a><br>
-<a href="https://github.com/Jericho-Ram">github.com/jericho-ram</a><br>
-<a href="https://linkedin.com/in/edosanjayap">linkedin.com/in/edosanjayap</a></p>
-
+  </div>
 </main>
+
+<footer>
+  <div class="wrap">
+    <span>Edo Sanjaya Perkasa</span>
+    <span><a href="https://github.com/Jericho-Ram/FlyRank-Internship-ML">github.com/Jericho-Ram</a></span>
+    <span>Every figure reproduces from a clean clone</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('is-in')});return;}
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target);}})},{threshold:.1,rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
 </body>
 </html>
