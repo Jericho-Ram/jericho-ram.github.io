@@ -1,59 +1,133 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Failure modes — Edo Sanjaya Perkasa</title>
 <meta name="description" content="Seven named failure modes in my own decline-risk model, each with a fix beside it or an honest note that no fix is applied.">
+<link rel="icon" type="image/png" sizes="32x32" href="icon-32.png?v=3">
+<link rel="icon" type="image/png" sizes="16x16" href="icon-16.png?v=3">
+<link rel="icon" href="favicon.ico?v=3" sizes="any">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
+<meta name="theme-color" content="#2F3822">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Mono:wght@500;600&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-<a class="mark" href="index.html">ES</a>
-<nav>
-<a href="index.html">HOME</a>
-<a href="cases.html">PROOF</a>
-<span aria-current="page">FAILURE MODES</span>
-<a href="about.html">ABOUT</a>
-<a href="cv.html">CV</a>
-<a href="contact.html">CONTACT</a>
-</nav>
+<header class="masthead">
+  <div class="wrap">
+    <a class="monogram" href="index.html">ES</a>
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="cases.html">Proof</a>
+      <a href="failure-modes.html" aria-current="page">Failure modes</a>
+      <a href="about.html">About</a>
+      <a href="cv.html">CV</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
 </header>
 
 <main>
+  <section class="hero">
+    <div class="wrap">
+      <p class="kicker"><span>Failure modes</span><span>Seven, named</span><span>Fixes where they exist</span></p>
+      <h1>Seven things I know are wrong with this model.</h1>
+      <p class="lede">Or with how I reported it. Fixes and conditions for each are in <a href="https://github.com/Jericho-Ram/FlyRank-Internship-ML/blob/main/outputs/known_failure_modes.md">known_failure_modes.md</a>. Where no fix is applied, it says so.</p>
+    </div>
+  </section>
 
-<h1 class="limit">Seven things I know are wrong with this model, or with how I reported it.</h1>
+  <div class="wrap">
 
-<p>Fixes and conditions for each are in <a href="https://github.com/Jericho-Ram/FlyRank-Internship-ML/blob/main/outputs/known_failure_modes.md">known_failure_modes.md</a>. Where no fix is applied, it says so.</p>
+    <section class="rec reveal">
+      <div class="rail"><span class="seq">1</span><b>Guaranteed negatives</b></div>
+      <div>
+        <h2>Zero-impression pages cannot decline, and they carried the result.</h2>
+        <p><span class="num">11.3%</span> of rows were guaranteed negatives; removing them dropped ROC AUC from <span class="num">0.750</span> to <span class="num">0.565</span>.</p>
+      </div>
+    </section>
 
-<h3>1. Zero-impression pages cannot decline, and they carried the result.</h3>
-<p><code>11.3%</code> of rows were guaranteed negatives; removing them dropped ROC AUC from <code>0.750</code> to <code>0.565</code>.</p>
+    <section class="rec reveal">
+      <div class="rail"><span class="seq">2</span><b>Not reproducible</b></div>
+      <div>
+        <h2>The committed report did not reproduce.</h2>
+        <p>Published Precision@50 of <span class="num">0.680</span>; a fresh clone returns <span class="num">0.740</span>. The <span class="num">0.680</span> is withdrawn.</p>
+      </div>
+    </section>
 
-<h3>2. The committed report did not reproduce.</h3>
-<p>Published Precision@50 of <code>0.680</code>; a fresh clone returns <code>0.740</code>. The <code>0.680</code> is withdrawn.</p>
+    <section class="rec reveal">
+      <div class="rail"><span class="seq">3</span><b>Window overlap</b></div>
+      <div>
+        <h2>The 90-day query window opens inside the label month.</h2>
+        <p><code>window_start</code> is <span class="num">2026-04-02</span>, one day after the decision date. Excluded on measurement, not assumption.</p>
+      </div>
+    </section>
 
-<h3>3. The 90-day query window opens inside the label month.</h3>
-<p><code>window_start</code> is <code>2026-04-02</code>, one day after the decision date. Excluded on measurement, not assumption.</p>
+    <section class="rec reveal">
+      <div class="rail"><span class="seq">4</span><b>Missing for the wrong reason</b></div>
+      <div>
+        <h2>GA4 features are 59% missing, and missing for the wrong reason.</h2>
+        <p>If importance concentrates there, the model is identifying clients rather than measuring engagement.</p>
+      </div>
+    </section>
 
-<h3>4. GA4 features are 59% missing, and missing for the wrong reason.</h3>
-<p>If importance concentrates there, the model is identifying clients rather than measuring engagement.</p>
+    <section class="rec reveal">
+      <div class="rail"><span class="seq">5</span><b>Two labels</b></div>
+      <div>
+        <h2>The label is defined differently in the two slices.</h2>
+        <p>The CSV's <code>trend_direction</code> is built from impressions; the warehouse label is built from clicks. Numbers from one do not transfer to the other.</p>
+      </div>
+    </section>
 
-<h3>5. The label is defined differently in the two slices.</h3>
-<p>The CSV's <code>trend_direction</code> is built from impressions; the warehouse label is built from clicks. Numbers from one do not transfer to the other.</p>
+    <section class="rec reveal">
+      <div class="rail"><span class="seq">6</span><b>Fragile metric</b></div>
+      <div>
+        <h2>Precision@50 is the most fragile metric in the table.</h2>
+        <p>It reads only the top 50 rows, so it moves first when tie-breaking changes. Quote ROC AUC alongside it, never alone. The pipeline now selects the best model by ROC AUC rather than Precision@50.</p>
+      </div>
+    </section>
 
-<h3>6. Precision@50 is the most fragile metric in the table.</h3>
-<p>It reads only the top 50 rows, so it moves first when tie-breaking changes. Quote ROC AUC alongside it, never alone. The pipeline now selects the best model by ROC AUC rather than Precision@50.</p>
+    <section class="rec reveal">
+      <div class="rail"><span class="seq">7</span><b>No fix applied</b></div>
+      <div>
+        <h2>On the valid population, no model discriminates well.</h2>
+        <p>Best ROC AUC across three models is <span class="num">0.583</span>. The decision tree returns <span class="num">0.505</span>, indistinguishable from random, and the hand rule <span class="num">0.380</span>, below it.</p>
+        <div class="callout">
+          <p>No fix applied — this is a finding, not a defect. The next step is a feature question, not a model question.</p>
+        </div>
+        <p>This describes the reference pipeline's single-runtime measurement on <span class="num">26,612</span> rows; the paper's cross-validated run is a separate measurement and reports higher figures.</p>
+      </div>
+    </section>
 
-<h3>7. On the valid population, no model discriminates well.</h3>
-<p>Best ROC AUC across three models is <code>0.583</code>. The decision tree returns <code>0.505</code>, indistinguishable from random, and the hand rule <code>0.380</code>, below it. No fix applied — this is a finding, not a defect. The next step is a feature question, not a model question. This describes the reference pipeline's single-runtime measurement on <code>26,612</code> rows; the paper's cross-validated run is a separate measurement and reports higher figures.</p>
-<hr>
+    <section class="rec reveal">
+      <div class="rail"><b>Evidence</b><br>where it's written up</div>
+      <div>
+        <h2>Items 1, 2, and 4 have the full working.</h2>
+        <p>The evidence behind them is on the <a href="cases.html">cases page</a>, with the code that produced every figure.</p>
+      </div>
+    </section>
 
-<p>The evidence behind items <code>1</code>, <code>2</code>, and <code>4</code> is written up on the <a href="cases.html">cases page</a>.</p>
-
-
+  </div>
 </main>
+
+<footer>
+  <div class="wrap">
+    <span>Edo Sanjaya Perkasa</span>
+    <span><a href="https://github.com/Jericho-Ram/FlyRank-Internship-ML">github.com/Jericho-Ram</a></span>
+    <span>Every figure reproduces from a clean clone</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('is-in')});return;}
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target);}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
 </body>
 </html>

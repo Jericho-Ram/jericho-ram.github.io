@@ -1,44 +1,113 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>About — Edo Sanjaya Perkasa</title>
 <meta name="description" content="What I've built, what I haven't, and how I work. The leak I found in my own model, and the figure I withdrew because of it.">
+<link rel="icon" type="image/png" sizes="32x32" href="icon-32.png?v=3">
+<link rel="icon" type="image/png" sizes="16x16" href="icon-16.png?v=3">
+<link rel="icon" href="favicon.ico?v=3" sizes="any">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
+<meta name="theme-color" content="#2F3822">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Mono:wght@500;600&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-<a class="mark" href="index.html">ES</a>
-<nav>
-<a href="index.html">HOME</a>
-<a href="cases.html">PROOF</a>
-<a href="failure-modes.html">FAILURE MODES</a>
-<span aria-current="page">ABOUT</span>
-<a href="cv.html">CV</a>
-<a href="contact.html">CONTACT</a>
-</nav>
+<header class="masthead">
+  <div class="wrap">
+    <a class="monogram" href="index.html">ES</a>
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="cases.html">Proof</a>
+      <a href="failure-modes.html">Failure modes</a>
+      <a href="about.html" aria-current="page">About</a>
+      <a href="cv.html">CV</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
 </header>
 
 <main>
-<h1>What I've built, what I haven't, and how I work</h1>
+  <section class="hero">
+    <div class="wrap">
+      <p class="kicker"><span>About</span><span>F&amp;B and gym ops, then ML</span><span>Bandung, ID</span></p>
+      <h1>What I've built, what I haven't, and how I work.</h1>
+    </div>
+  </section>
 
-<h2>What I've built</h2>
-<p>Over a decade running food and beverage businesses in Bandung, then operations for a gym on contract &mdash; scheduling, trainer management, the forecasts that decide staffing. I moved into ML because the questions I already had were ranking questions. The work on this site is that transition: a refresh-risk scoring model built during the FlyRank internship, a demand forecast that runs against real bookings, a lead scoring pipeline built under a zero-cost constraint. The first version looked good until I checked which pages it was ranking. Most of the separation came from pages that could not decline at all — no prior impressions, so the outcome was settled before the model saw anything. Scored only on pages where decline was arithmetically possible, the ranking showed no advantage over picking at random. I withdrew the figure I'd published and left the retraction in the report.</p>
+  <div class="wrap">
 
-<h2>What I haven't</h2>
-<p>No model of mine has run continuously in production. One has informed a real decision &mdash; a client ranking a gym manager used to set priority &mdash; but as advice, not as a system anyone depends on. No testimonial &mdash; the internship isn't finished, and the model has had one user, and it's me. No live demo. I've never trained anything at a scale where infrastructure was the hard part. If you need someone who has shipped ML into a product team, that isn't me yet.</p>
+    <section class="rec reveal">
+      <div class="rail"><b>What I've built</b></div>
+      <div>
+        <h2>The questions I already had were ranking questions.</h2>
+        <p>Over a decade running food and beverage businesses in Bandung, then operations for a gym on contract — scheduling, trainer management, the forecasts that decide staffing. I moved into ML because the questions I already had were ranking questions.</p>
+        <p>The work on this site is that transition: a refresh-risk scoring model built during the FlyRank internship, a demand forecast that runs against real bookings, a lead scoring pipeline built under a zero-cost constraint.</p>
+        <p>The first version looked good until I checked which pages it was ranking. Most of the separation came from pages that could not decline at all — no prior impressions, so the outcome was settled before the model saw anything. Scored only on pages where decline was arithmetically possible, the ranking showed no advantage over picking at random.</p>
+        <div class="callout">
+          <p>I withdrew the figure I'd published and left the retraction in the report.</p>
+        </div>
+      </div>
+    </section>
 
-<h2>How I work</h2>
-<p>I look for the leak before I look for the score, because a number that survives checking is the only kind worth sending you. When I find a failure mode I can't fix, it goes on the failure modes page instead of quietly out of the report. I work in English, Indonesian, and Mandarin.</p>
+    <section class="rec reveal">
+      <div class="rail"><b>What I haven't</b></div>
+      <div>
+        <h2>No model of mine has run continuously in production.</h2>
+        <ul class="plain">
+          <li>One has informed a real decision — a client ranking a gym manager used to set priority — but as advice, not as a system anyone depends on.</li>
+          <li>No testimonial. The internship isn't finished, and the model has had one user, and it's me.</li>
+          <li>No live demo.</li>
+          <li>I've never trained anything at a scale where infrastructure was the hard part.</li>
+        </ul>
+        <p style="margin-top:24px">If you need someone who has shipped ML into a product team, that isn't me yet.</p>
+      </div>
+    </section>
 
-<p>Before the subdomain for this site exists, I wrote out <a href="dns-walkthrough.html">what happens when someone types the address</a>, an explanation behind the scene and the notes work as a checklist.</p>
+    <section class="rec reveal">
+      <div class="rail"><b>How I work</b></div>
+      <div>
+        <h2>I look for the leak before I look for the score.</h2>
+        <p>A number that survives checking is the only kind worth sending you. When I find a failure mode I can't fix, it goes on the <a href="failure-modes.html">failure modes page</a> instead of quietly out of the report. I work in English, Indonesian, and Mandarin.</p>
+        <p>Before the subdomain for this site exists, I wrote out <a href="dns-walkthrough.html">what happens when someone types the address</a> — an explanation behind the scene, and the notes work as a checklist.</p>
+      </div>
+    </section>
 
-<p><a href="contact.html">Send one dataset and one question you want ranked</a></p>
+    <section class="rec reveal">
+      <div class="rail"><b>Next</b><br>if you have data</div>
+      <div>
+        <h2>Send one dataset and one question you want ranked.</h2>
+        <div class="evidence">
+          <a class="ev" href="contact.html">
+            <span class="t">Start there</span>
+            <span class="d">One file, one ranking question. Free up to 100,000 rows, reply within one business day.</span>
+          </a>
+        </div>
+      </div>
+    </section>
 
+  </div>
 </main>
+
+<footer>
+  <div class="wrap">
+    <span>Edo Sanjaya Perkasa</span>
+    <span><a href="https://github.com/Jericho-Ram/FlyRank-Internship-ML">github.com/Jericho-Ram</a></span>
+    <span>Every figure reproduces from a clean clone</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('is-in')});return;}
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target);}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
 </body>
 </html>
