@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jericho-ram.github.io/sitemap.xml
